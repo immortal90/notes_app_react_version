@@ -59,11 +59,11 @@ const AddNoteForm: React.FC<AddNoteFormProps> = ({ onSave }) => {
   };
 
   return (
-    <form className="edit-note-form-container" onSubmit={handleSaveNote}>
+    <form onSubmit={handleSaveNote}>
       <div>
         <label htmlFor="noteContent">Зміст замітки:</label>
         <input
-          type="text"
+          className="form-input px-2 py-1 mx-1 rounded-full"
           id="noteContent"
           value={noteContent}
           onChange={handleNoteContentChange}
@@ -72,6 +72,7 @@ const AddNoteForm: React.FC<AddNoteFormProps> = ({ onSave }) => {
       <div>
         <label htmlFor="noteCategory">Категорія замітки:</label>
         <select
+          className="px-2 py-1 mx-1 rounded-full"
           id="noteCategory"
           value={noteCategory}
           onChange={handleNoteCategoryChange}
@@ -84,14 +85,20 @@ const AddNoteForm: React.FC<AddNoteFormProps> = ({ onSave }) => {
       <div>
         <label htmlFor="dateInput">Дата виконання або переносу</label>
         <input
-          type="text"
+          className="form-input px-2 py-1 mx-1 rounded-full"
           id="dateInput"
           value={datesMentioned.join(", ")}
           onChange={handleDateInputChange}
           onKeyUp={handleDateInputKeyPress}
         />
       </div>
-      <button type="submit">Додати</button>
+      <button
+        type="submit"
+        className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
+        focus:ring-violet-300 my-1 px-4 rounded-lg cursor-pointer"
+      >
+        Додати
+      </button>
     </form>
   );
 };
