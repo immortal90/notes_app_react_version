@@ -15,37 +15,32 @@ const ArchivedNoteTable: React.FC = () => {
 
   return (
     <div>
-      <h2 className="my-2">Архівовані замітки</h2>
-      <table className="border-separate border border-slate-400 bg-stone-100">
+      <h2>Архівовані замітки</h2>
+      <table className="content-table">
         <thead>
           <tr>
-            <th className="border border-slate-500 bg-red-200">ID</th>
-            <th className="border border-slate-500 bg-red-200">
-              Дата створення
-            </th>
-            <th className="border border-slate-500 bg-red-200">Зміст</th>
-            <th className="border border-slate-500 bg-red-200">Категорія</th>
-            <th className="border border-slate-500 bg-red-200">Дата</th>
-            <th className="border border-slate-500 bg-red-200">Дії</th>
+            <th>ID</th>
+            <th>Дата створення</th>
+            <th>Зміст</th>
+            <th>Категорія</th>
+            <th>Дата</th>
+            <th>Дії</th>
           </tr>
         </thead>
         <tbody>
           {archivedNotes.map((note) => (
             <tr key={note.id}>
-              <td className="border border-slate-500">{note.id}</td>
-              <td className="border border-slate-500">{note.timeOfCreation}</td>
-              <td className="border border-slate-500">{note.noteContent}</td>
-              <td className="border border-slate-500">{note.noteCategory}</td>
-              <td className="border border-slate-500">
+              <td>{note.id}</td>
+              <td>{note.timeOfCreation}</td>
+              <td>{note.noteContent}</td>
+              <td>{note.noteCategory}</td>
+              <td>
                 {note.datesMentioned.length > 0
                   ? note.datesMentioned.join(", ")
                   : ""}
               </td>
-              <td className="border border-slate-500">
-                <button
-                  className="bg-cyan-500 hover:bg-cyan-600 mx-1 px-4 rounded-lg cursor-pointer"
-                  onClick={() => handleUnarchiveNote(note.id)}
-                >
+              <td>
+                <button onClick={() => handleUnarchiveNote(note.id)}>
                   Розархівувати
                 </button>
               </td>
