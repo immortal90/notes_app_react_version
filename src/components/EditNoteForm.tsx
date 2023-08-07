@@ -61,11 +61,11 @@ const EditNoteForm: React.FC<EditNoteFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSaveNote}>
+    <form className="edit-note-form-container" onSubmit={handleSaveNote}>
       <div>
         <label htmlFor="noteContent">Зміст замітки:</label>
         <input
-          className="form-input px-2 py-1 mx-1 rounded-full"
+          type="text"
           id="noteContent"
           value={noteContent}
           onChange={handleNoteContentChange}
@@ -74,7 +74,6 @@ const EditNoteForm: React.FC<EditNoteFormProps> = ({
       <div>
         <label htmlFor="noteCategory">Категорія замітки:</label>
         <select
-          className="px-2 py-1 mx-1 rounded-full"
           id="noteCategory"
           value={noteCategory}
           onChange={handleNoteCategoryChange}
@@ -87,25 +86,14 @@ const EditNoteForm: React.FC<EditNoteFormProps> = ({
       <div>
         <label htmlFor="dateInput">Дата виконання або переносу</label>
         <input
-          className="form-input px-2 py-1 mx-1 rounded-full"
+          type="text"
           id="dateInput"
           value={dateInput}
           onChange={handleDateInputChange}
         />
       </div>
-      <button
-        type="submit"
-        className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
-        focus:ring-violet-300 my-1 px-4 rounded-lg cursor-pointer"
-      >
-        Зберегти
-      </button>
-      <button
-        type="button"
-        className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
-        focus:ring-violet-300 my-1 px-4 rounded-lg cursor-pointer"
-        onClick={onClose}
-      >
+      <button type="submit">Зберегти</button>
+      <button type="button" onClick={onClose}>
         Скасувати
       </button>
     </form>
