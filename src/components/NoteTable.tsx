@@ -87,41 +87,59 @@ const NoteTable: React.FC = () => {
 
   return (
     <div>
-      <table className="content-table">
+      <table className="border-separate border border-slate-400 bg-stone-100">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Дата створення</th>
-            <th>Зміст</th>
-            <th>Категорія</th>
-            <th>Дата</th>
-            <th>Дії</th>
+            <th className="border border-slate-300 bg-red-200">ID</th>
+            <th className="border border-slate-300 bg-red-200">
+              Дата створення
+            </th>
+            <th className="border border-slate-300 bg-red-200">Зміст</th>
+            <th className="border border-slate-300 bg-red-200">Категорія</th>
+            <th className="border border-slate-300 bg-red-200">Дата</th>
+            <th className="border border-slate-300 bg-red-200">Дії</th>
           </tr>
         </thead>
         <tbody>
           {notes.map((note) => (
             <tr key={note.id}>
-              <td>{note.id}</td>
-              <td>{note.timeOfCreation}</td>
-              <td>{note.noteContent}</td>
-              <td>{note.noteCategory}</td>
-              <td>
+              <td className="border border-slate-300">{note.id}</td>
+              <td className="border border-slate-300">{note.timeOfCreation}</td>
+              <td className="border border-slate-300">{note.noteContent}</td>
+              <td className="border border-slate-300">{note.noteCategory}</td>
+              <td className="border border-slate-300">
                 {note.datesMentioned.length > 0
                   ? note.datesMentioned.map(formatDate).join(", ")
                   : ""}
               </td>
-              <td>
-                <button onClick={() => setEditingNote(note)}>Редагувати</button>
+              <td className="border border-slate-300">
+                <button
+                  className="bg-sky-500 hover:bg-sky-700 mx-1 px-4 rounded-lg cursor-pointer"
+                  onClick={() => setEditingNote(note)}
+                >
+                  Редагувати
+                </button>
                 {note.archived ? (
-                  <button onClick={() => handleUnarchiveNote(note.id)}>
+                  <button
+                    className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
+                   focus:ring-violet-300 mx-1 px-4 rounded-lg cursor-pointer"
+                    onClick={() => handleUnarchiveNote(note.id)}
+                  >
                     Відновити
                   </button>
                 ) : (
-                  <button onClick={() => handleArchiveNote(note.id)}>
+                  <button
+                    className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
+                   focus:ring-violet-300 mx-1 px-4 rounded-lg cursor-pointer"
+                    onClick={() => handleArchiveNote(note.id)}
+                  >
                     Архівувати
                   </button>
                 )}
-                <button onClick={() => handleDeleteNote(note.id)}>
+                <button
+                  className="bg-cyan-500 hover:bg-cyan-600 mx-1 px-4 rounded-lg cursor-pointer"
+                  onClick={() => handleDeleteNote(note.id)}
+                >
                   Видалити
                 </button>
               </td>
@@ -131,7 +149,13 @@ const NoteTable: React.FC = () => {
       </table>
       {showAddForm && <AddNoteForm onSave={handleAddNote} />}
       {!showAddForm && (
-        <button onClick={() => setShowAddForm(true)}>Додати замітку</button>
+        <button
+          className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
+        focus:ring-violet-300 my-1 px-4 rounded-lg cursor-pointer"
+          onClick={() => setShowAddForm(true)}
+        >
+          Додати замітку
+        </button>
       )}
       {editingNote !== null && (
         <EditNoteForm

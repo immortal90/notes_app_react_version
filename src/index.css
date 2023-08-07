@@ -1,4 +1,4 @@
-* {
+/* * {
   font-family: sans-serif;
 }
 
@@ -130,3 +130,10 @@ button {
 .edit-note-form-container button[type="button"]:hover {
   background-color: #f44336;
 }
+*/
+/* index.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Ваші власні стилі тут */
